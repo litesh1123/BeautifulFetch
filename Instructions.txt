@@ -1,0 +1,91 @@
+Got it. Here are the updated instructions assuming you have been provided with all necessary files:
+
+### Step-by-Step Instructions to Run the Script
+
+1. **Install Required Packages:**
+   Ensure you have the necessary Python packages installed. You can install them using pip:
+   ```sh
+   pip install pandas beautifulsoup4 selenium nltk openpyxl
+   ```
+
+2. **Download NLTK Resources:**
+   The code will automatically download required NLTK resources, but you can also download them manually by running the following Python script:
+   ```python
+   import nltk
+   nltk.download('punkt')
+   nltk.download('stopwords')
+   ```
+
+3. **Set Up Your Project Directory:**
+   Create a directory for your project and place the provided files in it:
+   - The Python script containing the provided code (e.g., `nlp_analysis.py`).
+   - The input Excel file named `Input.xlsx` containing URLs and URL IDs.
+   - Stop words files: `StopWords_Auditor.txt`, `StopWords_currencies.txt`, `StopWords_DatesandNumbers.txt`, `StopWords_Generic.txt`, `StopWords_GenericLong.txt`, `StopWords_Names.txt`, `StopWords_Geographic.txt`.
+   - Sentiment words files: `positive-words.txt` and `negative-words.txt`.
+
+4. **Configure WebDriver:**
+   Download the ChromeDriver that matches your version of Google Chrome from [here](https://sites.google.com/a/chromium.org/chromedriver/downloads) and place it in your project directory. Ensure the ChromeDriver executable is in your system's PATH or specify its path in the script.
+
+5. **Verify the File Structure:**
+   Ensure your project directory looks something like this:
+   ```
+   your_project_directory/
+   ├── nlp_analysis.py
+   ├── Input.xlsx
+   ├── StopWords_Auditor.txt
+   ├── StopWords_currencies.txt
+   ├── StopWords_DatesandNumbers.txt
+   ├── StopWords_Generic.txt
+   ├── StopWords_GenericLong.txt
+   ├── StopWords_Names.txt
+   ├── StopWords_Geographic.txt
+   ├── positive-words.txt
+   ├── negative-words.txt
+   ├── chromedriver.exe (if not in PATH)
+   ```
+
+6. **Run the Script:**
+   Execute the Python script from your command line or terminal:
+   ```sh
+   python nlp_analysis.py
+   ```
+
+7. **Check Output:**
+   - The script processes each URL from the `Input.xlsx` file, performs NLP analysis on the web page content, and appends the results to a CSV file named `Output Data Structure.csv`.
+   - The script prints the last few rows of the updated CSV file to verify the data has been added correctly.
+
+### Explanation of the Files and Their Contents
+
+- **Input Excel File (`Input.xlsx`):**
+  This file contains URLs and URL IDs in the following format:
+  ```
+  | URL_ID         | URL                |
+  |----------------|--------------------|
+  | blackassign0001| http://example.com |
+  | ...            | ...                |
+  ```
+
+- **Stop Words Files:**
+  These text files contain lists of stop words. Each file should contain one stop word per line.
+
+- **Sentiment Words Files:**
+  - `positive-words.txt`: Contains a list of positive words, one per line.
+  - `negative-words.txt`: Contains a list of negative words, one per line.
+
+### ChromeDriver Configuration
+
+- **Ensure ChromeDriver is in PATH:**
+  If ChromeDriver is not in your system's PATH, specify its path in the script:
+  ```python
+  driver = webdriver.Chrome(executable_path='/path/to/chromedriver', options=options)
+  ```
+
+### Running the Script
+
+- **Command Line Execution:**
+  Open a terminal or command prompt, navigate to your project directory, and run the script:
+  ```sh
+  cd your_project_directory
+  python nlp_analysis.py
+  ```
+
